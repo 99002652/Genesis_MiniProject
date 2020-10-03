@@ -1,7 +1,7 @@
 #include"Rooms.h"
 #include<iostream>
 using namespace std;
-//Rooms::Rooms(){availibility=avail_set();}
+Rooms::Rooms(){availibility=avail_set();}
 Rooms::Rooms(char ac,int price,std::string n,std::string ad,int ci_date,int co_date,int bal,long long int ph)
 :AC(ac),rate_perday(price),Guest(n,ad,ci_date,co_date,bal,ph){availibility=avail_set();}
 char Rooms::getAC_status(){return AC;}
@@ -10,15 +10,14 @@ int Rooms::getavailibility(){return availibility;}
 int Rooms::avail_set(){static int availibility=10;availibility--;}
 void Rooms::display()
 {
-    cout<<getbook_id()<<" ";
-    cout<<getguest_name()<<" ";
-    cout<<getguest_add()<<" ";
-    cout<<getcheckin_date()<<" ";
-    cout<<getcheckout_date()<<" ";
-    cout<<getphone_no()<<" ";
-    cout<<getbalance()<<" ";
-    cout<<getphone_no()<<" ";
-    cout<<room_no;
+    cout<<endl<<getbook_id()<<"   ";
+    cout<<getguest_name()<<"    ";
+    cout<<getguest_add()<<"     ";
+    cout<<getcheckin_date()<<"      ";
+    cout<<getcheckout_date()<<"     ";
+    cout<<getphone_no()<<"      ";
+    cout<<getbalance()<<"       ";
+    cout<<room_no<<endl;
 
 }
 /*

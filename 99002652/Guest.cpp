@@ -7,7 +7,7 @@ guest_name(n),guest_add(ad),checkin_date(ci_date),checkout_date(co_date),balance
     book_id=genbook_id();}
 
 std::string Guest::getguest_name(){return guest_name;}
-std::string Guest::getguest_add(){guest_add;}
+std::string Guest::getguest_add(){return guest_add;}
 int Guest::getcheckin_date(){return checkin_date;}
 int Guest::getcheckout_date(){return checkout_date;}
 long long int Guest::getphone_no(){return phone_no;}

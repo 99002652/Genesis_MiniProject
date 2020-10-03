@@ -5,10 +5,11 @@
 class Guestlist{
     std::list<Rooms> Guest_list;
 public:
-    void addGuest(std::string,std::string,long long int,int,int,int,int);
+    void addGuest(std::string,std::string,long long int,int,int,int);
     void removeGuestbyBook_id(int);
-    Rooms* findRoomsByBook_id(int);
+    Rooms* findGuestByBook_id(int);
     void displayAll();
+    int avail();
 
 
 };

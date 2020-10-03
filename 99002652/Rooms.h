@@ -8,7 +8,7 @@ class Rooms:public Guest{
     int rate_perday;
     int availibility;
 public:
-    Rooms(){}
+    Rooms();
     Rooms(char,int,std::string,std::string,int,int,int,long long int);
     char getAC_status();
     int getrate_perday();

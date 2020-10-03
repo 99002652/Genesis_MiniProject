@@ -1,27 +1,28 @@
 #include"Rooms.h"
 #include"Guest.h"
 #include<iostream>
+#include"GuestList.h"
+#include<stdlib.h>
 
 using namespace std;
-
-
+void menu(Guestlist);
+void checkin(Guestlist);
 
 int main()
 {
-    static int x=0;
+    Guestlist g;
     cout<<"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
     cout<<"                         Hotel Management                            "<<endl;
     cout<<"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
-    cout<<"1:Check In"<<endl;
-    cout<<"2:Check Out"<<endl;
-    int selection;
-    cin>>selection;
-    if(selection==1)
-    {
-        Rooms r;
-        int a=r.getavailibility();
-        if ((a+1)>0){
-        cout<<"The no of rooms available is :"<<(a+1)<<endl;
+    menu(g);
+
+    return 0;
+}
+void checkin(Guestlist g)
+{
+        int a=g.avail();
+        if ((a)>0){
+        cout<<"The no of rooms available is :"<<(a)<<endl;
         cout<<"to continue booking press 1"<<endl;
         int cont;
         cin>>cont;
@@ -42,20 +43,56 @@ int main()
             int ckout;
             cout<<"Enter check Out date DDMMYY"<<endl;
             cin>>ckout;
-            Rooms g1('Y',100,name,address,ckin,ckout,1000,phno);
-            cout<<"CHECK IN SUCCESSFUL Booking ID "<<g1.genbook_id();
-            x++;
 
+            g.addGuest(name,address,phno,ckin,ckout,100);
+            cout<<"CHECK IN SUCCESSFUL Booking ID ";
+            g.displayAll();
+            menu(g);
         }
         }
         else{cout<<"No Rooms available";}
 
+}
+void menu(Guestlist g)
+{
+    cout<<endl<<"1:Check In"<<endl;
+    cout<<"2:Check Out"<<endl;
+    cout<<"3:Display all data"<<endl;
+    cout<<"4:Find Guest by Booking Id"<<endl;
+    cout<<"5:Exit"<<endl;
+    int selection;
+    cin>>selection;
+    if(selection==1)
+    {
+        checkin(g);
     }
     else if(selection==2)
     {
-
+        cout<<"Enter the Booking ID to checkout"<<endl;
+        int b_id;
+        cin>>b_id;
+        g.removeGuestbyBook_id(b_id);
+        menu(g);
+    }
+    else if(selection==3)
+    {
+        g.displayAll();
+        menu(g);
+    }
+    else if(selection==4)
+    {
+        cout<<"Enter the Booking Id for details"<<endl;
+        int b_id;
+        cin>>b_id;
+        g.findGuestByBook_id(b_id);
+        menu(g);
+    }
+    else if(selection==5)
+    {
+        exit(0);
     }
     else{cout<<"Invalid Selection"<<endl;}
 
-    return 0;
 }
+
+

@@ -4,8 +4,10 @@
 #include"Guest.h"
 
 void Guestlist::addGuest(std::string name,std::string add,long long int phno,
-int ckin,int cko,int bal,int bkid)
-{Guest_list.push_back(Rooms('Y',100,name,add,phno,ckin,cko,bkid));}
+int ckin,int cko,int bal)
+{Guest_list.push_back(Rooms('Y',100,name,add,ckin,cko,bal,phno));}
+
+int Guestlist::avail(){int a=Guest_list.size();return (10-a);}
 
 void Guestlist::removeGuestbyBook_id(int bkid){
 std::list<Rooms>::iterator iter;
@@ -19,17 +21,20 @@ for(iter=Guest_list.begin();iter!=Guest_list.end();++iter)
         Guest_list.erase(iter);
     }
 }
-Rooms* Guestlist::findRoomsByBook_id(int bkid){
+Rooms* Guestlist::findGuestByBook_id(int bkid){
 std::list<Rooms>::iterator iter;
+int c=0;
 for(iter=Guest_list.begin();iter!=Guest_list.end();++iter)
     {
         if(iter->getbook_id()==bkid)
         {
+            std::cout<<"Data Found"<<std::endl;
             iter->display();
             return &(*iter);
+            c++;
         }
-std::cout<<"Not Found In Database\n";
-}
+    }
+if(c==0){std::cout<<"Not Found In Database\n";}
 return NULL;
 }
 
