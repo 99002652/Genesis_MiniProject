@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1601722256 source:/home/genesis52/Desktop/Mini_Project/99002652/main.cpp
+	"Rooms.h"
+	"Guest.h"
+	<iostream>
+
+1601720829 source:/home/genesis52/Desktop/Mini_Project/99002652/Guest.cpp
+	"Guest.h"
+	<iostream>
+
+1601725604 /home/genesis52/Desktop/Mini_Project/99002652/Guest.h
+	<iostream>
+
+1601725587 source:/home/genesis52/Desktop/Mini_Project/99002652/Rooms.cpp
+	"Rooms.h"
+	<iostream>
+
+1601725222 /home/genesis52/Desktop/Mini_Project/99002652/Rooms.h
+	"Guest.h"
+
+1601725132 source:/home/genesis52/Desktop/Mini_Project/99002652/GuestList.cpp
+	<iostream>
+	"GuestList.h"
+	"Rooms.h"
+	"Guest.h"
+
+1601724970 /home/genesis52/Desktop/Mini_Project/99002652/GuestList.h
+	"Rooms.h"
+	<list>
+
