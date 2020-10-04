@@ -8,7 +8,7 @@ class Guest{
     std::string guest_add;
     long long int phone_no;
     int checkin_date;
-    int checkout_date;
+    int days;
     int balance;
     int book_id;
 public:
@@ -17,7 +17,7 @@ public:
     std::string getguest_name();
     std::string getguest_add();
     int getcheckin_date();
-    int getcheckout_date();
+    int getdays();
     long long int getphone_no();
     int getbalance();
     int genbook_id();

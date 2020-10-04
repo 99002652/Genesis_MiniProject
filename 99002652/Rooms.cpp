@@ -1,25 +1,43 @@
 #include"Rooms.h"
 #include<iostream>
+#include<fstream>
+#include<vector>
+#include<string.h>
 using namespace std;
-Rooms::Rooms(){availibility=avail_set();}
-Rooms::Rooms(char ac,int price,std::string n,std::string ad,int ci_date,int co_date,int bal,long long int ph)
-:AC(ac),rate_perday(price),Guest(n,ad,ci_date,co_date,bal,ph){availibility=avail_set();}
-char Rooms::getAC_status(){return AC;}
-int Rooms::getrate_perday(){return rate_perday;}
-int Rooms::getavailibility(){return availibility;}
-int Rooms::avail_set(){static int availibility=10;availibility--;}
+Rooms::Rooms(){
+    availibility=avail_set();}
+Rooms::Rooms(char ac,std::string n,std::string ad,int ci_date,int rat,int bal,long long int ph)
+:a_c(ac),Guest(n,ad,ci_date,rat,bal,ph){
+    availibility=avail_set();}
+char Rooms::getAC_status(){
+    return a_c;}
+int Rooms::getrate_perday(){
+    return rate_perday;}
+int Rooms::getavailibility(){
+    return availibility;}
+int Rooms::avail_set(){
+    static int availibility=10;availibility--;}
 void Rooms::display()
 {
     cout<<endl<<getbook_id()<<"   ";
     cout<<getguest_name()<<"    ";
     cout<<getguest_add()<<"     ";
     cout<<getcheckin_date()<<"      ";
-    cout<<getcheckout_date()<<"     ";
+    cout<<getdays()<<"     ";
     cout<<getphone_no()<<"      ";
     cout<<getbalance()<<"       ";
-    cout<<room_no<<endl;
+    cout<<"AC "<<getAC_status()<<" ";
+    cout<<getroom()<<endl;
 
 }
+int r=0;
+int Rooms::getroom(){return room_no[r++];}
+
+void Rooms::read_record()
+{
+
+}
+void Rooms::update_record(){}
 /*
 int main()
 {

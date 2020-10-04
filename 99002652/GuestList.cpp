@@ -4,8 +4,8 @@
 #include"Guest.h"
 
 void Guestlist::addGuest(std::string name,std::string add,long long int phno,
-int ckin,int cko,int bal)
-{Guest_list.push_back(Rooms('Y',100,name,add,ckin,cko,bal,phno));}
+int ckin,int cko,int rat,char AC)
+{Guest_list.push_back(Rooms(AC,name,add,ckin,cko,rat,phno));}
 
 int Guestlist::avail(){int a=Guest_list.size();return (10-a);}
 

@@ -1,4 +1,4 @@
-#include"Rooms.h"
+/*#include"Rooms.h"
 #include"Guest.h"
 #include<iostream>
 #include"GuestList.h"
@@ -38,14 +38,20 @@ void checkin(Guestlist g)
             cout<<"Enter your Phone NO"<<endl;
             cin>>phno;
             int ckin;
-            cout<<"Enter check in date in DDMMYY"<<endl;
+            cout<<"Enter check in date in DDMM"<<endl;
             cin>>ckin;
-            int ckout;
-            cout<<"Enter check Out date DDMMYY"<<endl;
-            cin>>ckout;
+            int day;
+            cout<<"Enter days"<<endl;
+            cin>>day;
+            cout<<" AC (Y/N)"<<endl;
+            char ac;
+            cin>>ac;
+            cout<<"ENTER RATE PER DAY"<<endl;
+            int rt;
+            cin>>rt;
 
-            g.addGuest(name,address,phno,ckin,ckout,100);
-            cout<<"CHECK IN SUCCESSFUL Booking ID ";
+            g.addGuest(name,address,phno,ckin,day,rt,ac);
+            cout<<"CHECK IN SUCCESSFUL";
             g.displayAll();
             menu(g);
         }
@@ -94,5 +100,5 @@ void menu(Guestlist g)
     else{cout<<"Invalid Selection"<<endl;}
 
 }
-
+*/
 
