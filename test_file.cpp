@@ -1,5 +1,27 @@
 #include "Rooms.h"
 #include "gtest/gtest.h"
+#include<semaphore.h>
+#include<pthread.h>
+
+
+
+pthread_mutex_t m1=PTHREAD_MUTEX_INITIALIZER;
+sem_t s1;
+
+
+void* efun1(void* pv){
+
+
+
+        pthread_mutex_lock(&m1);
+
+    	 Rooms r1('Y',"Nishant","Patna",2109,10,500,9835407419);
+    	 Rooms r2('Y',"abhishek","Bangalore",1109,5,800,9999499999);
+         Rooms r3('Y',"Labeeb","Kochi",2009,1,500,88888888);
+        pthread_mutex_unlock(&m1);
+        sem_post(&s1);
+
+}
 
 
 TEST(Rooms,ParameterConstructor)
@@ -27,10 +49,10 @@ TEST(Rooms,ParameterConstructor)
 }
 TEST(Rooms,ParameterConstructo)
 {
-    Rooms r3('Y',"Labib","Kochi",2009,1,500,88888888);
+    Rooms r3('Y',"Labeeb","Kochi",2009,1,500,88888888);
     Rooms r4('Y',"Shekhar","Chennai",1109,2,800,9777777777);
     EXPECT_EQ('Y',r3.getAC_status());
-    EXPECT_EQ("Labib",r3.getguest_name());
+    EXPECT_EQ("Labeeb",r3.getguest_name());
     EXPECT_EQ("Kochi",r3.getguest_add());
     EXPECT_EQ(2009,r3.getcheckin_date());
     EXPECT_EQ(1,r3.getdays());
@@ -47,4 +69,18 @@ TEST(Rooms,ParameterConstructo)
     EXPECT_EQ(103,r4.getroom());
     EXPECT_EQ(9777777777,r4.getphone_no());
     EXPECT_EQ(4,r4.getbook_id());
+}
+
+TEST(Data, test) {
+
+    pthread_t pt1;    
+    sem_init(&s1,0,0);
+    pthread_create(&pt1,NULL,efun1,NULL);
+    pthread_join(pt1,NULL);
+
+    Rooms r4('Y',"Shekhar","Chennai",1109,2,800,9777777777);
+    EXPECT_EQ("Shekhar",r4.getguest_name());
+
+    sem_destroy(&s1);
+    pthread_mutex_destroy(&m1);
 }
