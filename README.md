@@ -4,6 +4,6 @@
 
 
 
-|CppCheck|Valgrind|
-|--------|--------|
-|![cppcheck-action](https://github.com/99002652/Genesis_MiniProject/workflows/cppcheck-action/badge.svg)|![cppcheck-action](https://github.com/99002652/Genesis_MiniProject/workflows/cppcheck-action/badge.svg)|
+|CppCheck|Valgrind|UnitTest|
+|--------|--------|--------|
+|![cppcheck-action](https://github.com/99002652/Genesis_MiniProject/workflows/cppcheck-action/badge.svg)|![cppcheck-action](https://github.com/99002652/Genesis_MiniProject/workflows/cppcheck-action/badge.svg)|![Unit testing](https://github.com/99002652/Genesis_MiniProject/workflows/Unit%20testing/badge.svg?branch=master)|
